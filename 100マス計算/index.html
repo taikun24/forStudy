@@ -10,10 +10,11 @@
 		<h1>100マス計算</h1>
 	</header>
 	<div class='gen'>
-		<button class="but" onclick="createRandom();">生成（ランダム）</button>
+		<button class="but" onclick="createRandom('a');">掛け算生成（ランダム）</button>
+		<button class="but" onclick="createRandom('b');">足し算生成（ランダム）</button>
 	</div>
 	<script type="text/javascript">
-		function createNums(){
+		function createNums(arg){
 			let array = [];
 			while(array.length!=10){
 				let random = Math.floor(Math.random()*10);
@@ -24,10 +25,10 @@
 			console.log(array);
 			return array;
 		}
-		function createRandom() {
+		function createRandom(arg) {
 			let a1 = createNums();
 			let a2 = createNums();
-			location.href = "view.html?type=a&num1="+a1.join(',')+"&num2="+a2.join(',');
+			location.href = "view.html?type="+arg+"&num1="+a1.join(',')+"&num2="+a2.join(',');
 		}
 	</script>
 	<style type="text/css">

@@ -15,7 +15,7 @@
 			style.innerHTML = '';
 			style.className = '';
 		}else{
-			style.innerHTML = '.ans{color:white;}\n@media print{.ans{color:white;}}';
+			style.innerHTML = '.ans{color:white;display:none;}<br>@media print{.ans{color:white;display:none;}}';
 			style.className = 'hided';
 		}
 	">答え表示/非表示</button>
@@ -26,11 +26,16 @@
 		let params = url.searchParams;
 		let a1 = params.get('num1').split(',');
 		let a2 = params.get('num2').split(',');
+		let type = params.get('type');
 		let mas = document.createElement('table');
 		mas.border = 5;
 		let firstmas = document.createElement('tr');
 		let firstfirstmas = document.createElement('th');
-		firstfirstmas.innerHTML = '✖️';
+		if(type=='a'){
+			firstfirstmas.innerHTML = '✖';
+		}else if(type=='b'){
+			firstfirstmas.innerHTML = '+';
+		}
 		firstmas.appendChild(firstfirstmas);
 		for (var i = 0; i < a1.length; i++) {
 			let el = document.createElement('th');
@@ -42,7 +47,13 @@
 			let el = document.createElement('tr');
 			el.insertAdjacentHTML("beforeend",'<td>'+a2[i]+'</td>');
 			for (var j = 0; j < a1.length; j++) {
-				el.insertAdjacentHTML("beforeend",'<td class="ans">'+(a2[i]*a1[j])+'</td>');
+				let as = 0;
+				if(type=='a'){
+					as=(parseInt(a2[i])*parseInt(a1[j]));
+				}else if(type=='b'){
+					as=(parseInt(a2[i])+parseInt(a1[j]));
+				}
+				el.insertAdjacentHTML("beforeend",'<td class="ans">'+as+'</td>');
 			}
 			mas.appendChild(el);
 		}
