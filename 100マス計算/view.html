@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>表示用</title>
+</head>
+<body>
+	<header class='header ph'> 
+		<h1>100マス計算</h1>
+	</header>
+	<button class="ph" onclick="
+		let style = document.getElementById('jscss');
+		if(style.className=='hided'){
+			style.innerHTML = '';
+			style.className = '';
+		}else{
+			style.innerHTML = '.ans{color:white;}\n@media print{.ans{color:white;}}';
+			style.className = 'hided';
+		}
+	">答え表示/非表示</button>
+	<p class="ph">注意：プリント時には「背景のグラッフィック」をオンにしてください。
+	(ヘッダー、ボタン、この注意書きはプリント時には印刷されません)</p>
+	<script>
+		let url = new URL(window.location.href);
+		let params = url.searchParams;
+		let a1 = params.get('num1').split(',');
+		let a2 = params.get('num2').split(',');
+		let mas = document.createElement('table');
+		mas.border = 5;
+		let firstmas = document.createElement('tr');
+		let firstfirstmas = document.createElement('th');
+		firstfirstmas.innerHTML = '✖️';
+		firstmas.appendChild(firstfirstmas);
+		for (var i = 0; i < a1.length; i++) {
+			let el = document.createElement('th');
+			el.innerHTML = a1[i];
+			firstmas.appendChild(el);
+		}
+		mas.appendChild(firstmas);
+		for (var i = 0; i < a2.length; i++) {
+			let el = document.createElement('tr');
+			el.insertAdjacentHTML("beforeend",'<td>'+a2[i]+'</td>');
+			for (var j = 0; j < a1.length; j++) {
+				el.insertAdjacentHTML("beforeend",'<td class="ans">'+(a2[i]*a1[j])+'</td>');
+			}
+			mas.appendChild(el);
+		}
+		
+		document.body.appendChild(mas);
+	</script>
+	<style type="text/css">
+		body{
+			margin: 0px 0px;
+		}
+		.header{
+			padding: 1% 1%;
+			height:10%;
+			background-color: rgb(255, 230, 255);
+		}
+		.header h1{
+			margin: 0px 0px;
+		}
+		
+		.ans{
+			color:red;
+		}
+		table{
+			width: 880px;
+			height: 880px;
+		}
+		th{
+			width: 80px;
+			height: 80px;
+			font-size:40px;
+		}
+		td{
+			text-align: center;height:80px;
+			font-size:40px;
+		}
+		@media print{
+			.ph{
+				display: none;
+			}
+		}
+	</style>
+	<style type="text/css" id="jscss">
+		
+	</style>
+</body>
+</html>
