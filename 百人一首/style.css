@@ -1,0 +1,111 @@
+body{
+	background-image: url('bg.jpg');
+	background-color:rgba(255,255,255,0.8);
+	background-blend-mode:lighten;
+	text-align: center;
+	font-family: "Noto Serif JP", serif;
+	overflow: hidden;
+}
+.range{
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+.range-split{
+	margin: 0px 2.5vw;
+	font-size: 5em;
+	width: 2.5vw;
+	height: 5px;
+	background-color: black;
+}
+input{
+	font-family: "Noto Serif JP", serif;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid black;
+	text-align: center;
+	font-size: 2em;
+	width: 15vw;
+}
+button{
+	margin-top: 5vh;
+	font-family: "Noto Serif JP", serif;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid black;
+	text-align: center;
+	font-size: 2em;
+	width: 20vw;
+	min-width: 100px;
+	background-color: white;
+}
+.view-m{
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  height: 65vh;
+  width: 25vh;
+  display: flex;
+  background-color: white;
+  border: 5px solid green;
+  font-size: 3vh;
+  margin: 0 5vw;
+  flex-direction: column;
+  justify-content: space-evenly;
+  overflow: visible;
+  word-break: keep-all;
+ 	font-weight: bold;
+}
+main{
+	display: flex;
+}
+.input-m{
+	width: 50vw;
+	display: flex;
+	    align-items: center;
+    flex-direction: column;
+}
+
+/* 桜の花びらのスタイル */
+.petal {
+  position: absolute;
+  background-color: #ffc0cb; /* 花びらの色 */
+  border-radius: 150% 0 150% 0;
+  animation: animate-petal 3s infinite linear;
+}
+
+.petal::after {
+  content: "";
+  position: absolute;
+  top: -14%;
+  left: -10%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc0cb;
+  border-radius: 150% 0 150% 0;
+  transform: rotate(15deg);
+}
+
+/* 花びらが降るアニメーション */
+@keyframes animate-petal {
+  0% {
+    top: 0;
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 100vh;
+    transform: rotate(30deg) translate(-50vw, 50vh) rotate(1000deg);
+  }
+}
+#input{
+	-ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  height: 40vh;
+  font-size: 5vh;
+}

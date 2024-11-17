@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>百人一首</title>
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+	<!-- Style Sheet -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<h1>百人一首<br>穴埋め暗記</h1>
+	<main>
+		<div class="view-m">
+			<div id='up'>あああああ　あああああああ　あああああ</div>
+			<div id='down'>あああああああ　あああああああ</div>
+		</div>
+		<div class="input-m">
+			<h2 id="num">1番</h2>
+			<h2 id="input">(入力して下さい)</h2>
+			<button onclick="check();" id="check-ans">解答する</button>
+			<h2 id="result"></h2>
+		</div>
+		<input type="text" style="display:none;" id="vkey">
+	</main>
+	<script type="text/javascript" src="data.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="input.js"></script>
+</body>
+</html>
