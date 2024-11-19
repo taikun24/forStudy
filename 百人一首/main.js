@@ -18,10 +18,10 @@ let check_ans = document.getElementById('check-ans');
 
     return cloneArray
   }
-function show(id, quiz){
+function show(id, quiz, show=false, correct=true){
 	num.innerHTML = (id + 1) + '番';
-	const ku = ogura[id].slice(0, ogura[id].length);
-	if(quiz != -1)ku[quiz] = '<b style="color:red;">'+'？'.repeat(ku[quiz].length)+'</b>';
+	let ku = ogura[id].slice(0, ogura[id].length);
+	ku[quiz] = '<b style="color:'+(show?(correct?'red':'blue'):'red')+';">'+(show?ku[quiz]:('？'.repeat(ku[quiz].length)))+'</b>';
 	up.innerHTML = ku[0]+'　'+ku[1]+'　'+ku[2];
 	down.innerHTML = ku[3]+'　'+ku[4];
 }
@@ -38,7 +38,7 @@ function check(){
 		}else{
 			resultE.innerHTML = '<b style="color:blue;">不正解</b><br>正答　'+ogura[q['id']][q['quiz']];
 		}
-		show(quizs[now]['id'], -1);
+		show(quizs[now]['id'], quizs[now]['quiz'], true, keys == ogura[q['id']][q['quiz']]);
 		result = true;
 	}else{
 		check_ans.innerHTML = '解答する'
