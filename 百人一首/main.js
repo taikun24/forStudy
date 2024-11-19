@@ -54,14 +54,16 @@ function check(){
 		result = false;
 	}
 }
-let start, end;
+let start, end, count;
 let url = new URL(window.location.href);
 let params = url.searchParams;
 start = params.get('s')-1;
 end = params.get('e')-1;
+count = params.get('c') || 10;
 // Create Quiz
 for (var i = start; i <= end; i++) {
 	for (var j = 0; j < 5; j++) {
+		if(quizs.length == count)break;
 		quizs.push({'id': i, 'quiz': j});
 		//console.log('a');
 	}
@@ -69,9 +71,7 @@ for (var i = start; i <= end; i++) {
 quizs = shuffleArray(quizs);
 show(quizs[now]['id'], quizs[now]['quiz'])
 document.addEventListener('click',()=>document.getElementById('vkey').focus());
-
-
-
+document.getElementById('vkey').addEventListener('change',()=>{document.getElementById('vkey').value=null});
 function animation(){
   const createPetal = () => {
     const petalEl = document.createElement('span');

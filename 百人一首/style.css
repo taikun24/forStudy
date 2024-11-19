@@ -4,7 +4,11 @@ body{
 	background-blend-mode:lighten;
 	text-align: center;
 	font-family: "Noto Serif JP", serif;
-	overflow: hidden;
+	/*overflow: hidden;*/
+}
+a{
+	color: black;
+	text-decoration: none;
 }
 .range{
 	display: flex;
@@ -36,6 +40,9 @@ button{
 	width: 20vw;
 	min-width: 100px;
 	background-color: white;
+}
+.range{
+	margin-bottom: 5vh;
 }
 .view-m{
   -ms-writing-mode: tb-rl;

@@ -12,18 +12,22 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>百人一首<br>穴埋め暗記</h1>
+	<a href="#"><h1>百人一首<br>穴埋め暗記</h1></a>
 	<div style="display: none;" id="result-show">
-		<h1>結果</h1>
-		<h1 style="font-size: 5em;" id="result-percent">100%</h1>
+		<h1 style="margin: 0 0;">結果</h1>
+		<h1 style="font-size: 5em;margin: 0 0;" id="result-percent">100%</h1>
 	</div>
 	<h2>範囲指定</h2>
 	<div class="range">
 		<input id="start" type="number" value="1" min="1" max="100">
 		<div class="range-split"></div>
-		<input id="end" type="number" value="100" min="1" max=100>
+		<input id="end" type="number" value="100" min="1" max="100">
 	</div>
-	<button onclick="location.href = 'game.html?s='+document.getElementById('start').value+'&e='+document.getElementById('end').value;">開始</button>
+	<div>
+		<h2>問題数</h2>
+		<input id="count" type="number" value="10" min="1">
+	</div>
+	<button onclick="location.href = 'game.html?s='+document.getElementById('start').value+'&e='+document.getElementById('end').value+'&c='+document.getElementById('count').value;">開始</button>
 	<script type="text/javascript">
 		let url = new URL(window.location.href);
 		let params = url.searchParams;

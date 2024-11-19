@@ -1,21 +1,23 @@
 let keys = '';
 let input = document.getElementById('input');
 window.onload = function(){
-	document.addEventListener('keydown', function(e){
-		if(e.key == 'Backspace'){
+	document.addEventListener('keydown', function(e)
+	{
+		const key = e.key.toLowerCase();
+		if(key == 'Backspace'){
 			keydel();
-		}else if(e.key == 'n'){
+		}else if(key == 'n'){
 			if(keys.length != 0){
 				let bef = keys[keys.length - 1];
-				if(bef == 'n'){keydel();keyadd('ん');}else{keyadd(e.key);}
+				if(bef == 'n'){keydel();keyadd('ん');}else{keyadd(key);}
 			}else{
-				keyadd(e.key);
+				keyadd(key);
 			}
-		}else if(e.key.length == 1 && e.key.match(/[a-z]/i)){
-			keyadd(e.key);
-		}else if(e.key == '-'){
+		}else if(key.length == 1 && key.match(/[a-z]/i)){
+			keyadd(key);
+		}else if(key == '-'){
 			keys += 'ー';
-		}else if(e.key == 'Enter'){
+		}else if(key == 'Enter'){
 			check();
 		}
 		update();
