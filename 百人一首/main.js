@@ -67,10 +67,10 @@ for (var i = start; i <= end; i++) {
 		//console.log('a');
 	}
 }
+quizs = shuffleArray(quizs);
 if(count < quizs.length){
 	quizs = quizs.slice(0, count);
 }
-quizs = shuffleArray(quizs);
 show(quizs[now]['id'], quizs[now]['quiz'])
 document.addEventListener('click',()=>document.getElementById('vkey').focus());
 document.getElementById('vkey').addEventListener('change',()=>{document.getElementById('vkey').value=null});
