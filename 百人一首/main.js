@@ -63,10 +63,12 @@ count = params.get('c') || 10;
 // Create Quiz
 for (var i = start; i <= end; i++) {
 	for (var j = 0; j < 5; j++) {
-		if(quizs.length == count)break;
 		quizs.push({'id': i, 'quiz': j});
 		//console.log('a');
 	}
+}
+if(count < quizs.length){
+	quizs = quizs.slice(0, count);
 }
 quizs = shuffleArray(quizs);
 show(quizs[now]['id'], quizs[now]['quiz'])
