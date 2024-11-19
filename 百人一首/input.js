@@ -4,7 +4,7 @@ window.onload = function(){
 	document.addEventListener('keydown', function(e)
 	{
 		const key = e.key.toLowerCase();
-		if(key == 'Backspace'){
+		if(key == 'backspace'){
 			keydel();
 		}else if(key == 'n'){
 			if(keys.length != 0){
@@ -17,7 +17,7 @@ window.onload = function(){
 			keyadd(key);
 		}else if(key == '-'){
 			keys += 'ー';
-		}else if(key == 'Enter'){
+		}else if(key == 'enter'){
 			check();
 		}
 		update();
