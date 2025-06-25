@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,24 +12,43 @@
 	<!-- Style Sheet -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
-	<a href="./index.html"><h1>百人一首<br>穴埋め暗記</h1></a>
+	<a href="./index.html" style="width: 100vw; display: flex;flex-direction: column;align-items: center;">
+		<h1 style="margin: 0 0;">百人一首　穴埋め暗記</h1><br>
+		<p id="progression">1/10</p>
+		<div id="progress-bar-container"
+			style="text-align: center;width: 50%; height: 16px; border-radius: 8px; margin: 2px 0; border: 5px solid green;">
+			<div id="progress-bar" style="width: 0%; height: 100%; background: green; "></div>
+		</div>
+	</a>
 	<main>
 		<div class="view-m">
-			<div id='up'>あああああ　あああああああ　あああああ</div>
-			<div id='down'>あああああああ　あああああああ</div>
+			<div id='up'>エラーだよ　ああエラーだよ　エラーだよ</div>
+			<div id='down'>そして輝く　ウルトラソウル</div>
 		</div>
 		<div class="input-m">
-			<h2 id="num">1番</h2>
-			<input type="text" id="vkey" style="opacity: 0;">
-			<h2 id="input">(入力して下さい)</h2>
-			<button onclick="check();" id="check-ans">解答する</button>
-			<h2 id="result"></h2>
+			<div class="input-m-row">
+				<div class="input-m-left">
+					<h2 id="num">1番</h2>
+					<input type="text" id="vkey" style="opacity: 0;">
+					<div style="display: flex; gap: 1em; justify-content: center;">
+						<button onclick="check();" id="check-ans">解答する</button>
+						<button onclick="showHint();" id="hint-btn">ヒント</button>
+					</div>
+					<h2 id="hint"></h2>
+					<h2 id="result"></h2>
+				</div>
+				<div class="input-m-right">
+					<h2 id="input">(入力して下さい)</h2>
+				</div>
+			</div>
 		</div>
-		
+
 	</main>
 	<script type="text/javascript" src="data.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript" src="input.js"></script>
 </body>
+
 </html>

@@ -1,50 +1,67 @@
-body{
-	background-image: url('bg.jpg');
-	background-color:rgba(255,255,255,0.8);
-	background-blend-mode:lighten;
-	text-align: center;
-	font-family: "Noto Serif JP", serif;
-	/*overflow: hidden;*/
+body {
+  /* background-image: url('bg.jpg'); */
+  /* background-color:rgba(255,255,255,0.8); */
+  /* background-blend-mode:lighten; */
+
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  /*overflow: hidden;*/
 }
-a{
-	color: black;
-	text-decoration: none;
+
+a {
+  color: black;
+  text-decoration: none;
 }
-.range{
-	display: flex;
-	justify-content: center;
-    align-items: center;
+
+.range {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.range-split{
-	margin: 0px 2.5vw;
-	font-size: 5em;
-	width: 2.5vw;
-	height: 5px;
-	background-color: black;
+
+.range-split {
+  margin: 0px 2.5vw;
+  font-size: 5em;
+  width: 2.5vw;
+  height: 5px;
+  background-color: black;
 }
-input{
-	font-family: "Noto Serif JP", serif;
-	background-color: rgba(0, 0, 0, 0);
-	border: 1px solid black;
-	text-align: center;
-	font-size: 2em;
-	width: 15vw;
+
+input {
+  font-family: "Noto Serif JP", serif;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid black;
+  text-align: center;
+  font-size: 2em;
+  width: 15vw;
 }
-button{
-	margin-top: 5vh;
-	font-family: "Noto Serif JP", serif;
-	background-color: rgba(0, 0, 0, 0);
-	border: 1px solid black;
-	text-align: center;
-	font-size: 2em;
-	width: 20vw;
-	min-width: 100px;
-	background-color: white;
+
+button,
+#hint-btn {
+  margin-top: 3vh;
+  font-family: "Noto Serif JP", serif;
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 2em;
+  width: 15vw;
+  min-width: 90px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
 }
-.range{
-	margin-bottom: 5vh;
+
+button:hover,
+#hint-btn:hover {
+  background-color: #e0ffe0;
+  color: #008000;
+  border: 1.5px solid #008000;
 }
-.view-m{
+
+.range {
+  margin-bottom: 5vh;
+}
+
+.view-m {
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   height: 65vh;
@@ -58,22 +75,61 @@ button{
   justify-content: space-evenly;
   overflow: visible;
   word-break: keep-all;
- 	font-weight: bold;
+  font-weight: bold;
 }
-main{
-	display: flex;
+
+main {
+  display: flex;
 }
-.input-m{
-	width: 50vw;
-	display: flex;
-	    align-items: center;
-    flex-direction: column;
+
+.input-m {
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-m-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2vw;
+  width: 100%;
+  margin-top: 2vh;
+}
+
+.input-m-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vh;
+}
+
+.input-m-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 180px;
+  gap: 1vh;
+}
+
+.input-m input {
+  margin-bottom: 1vh;
+}
+
+#hint {
+  font-size: 1.2em;
+  color: #008000;
+  margin: 0.5em 0 0.5em 0;
+  min-height: 1.5em;
 }
 
 /* 桜の花びらのスタイル */
 .petal {
   position: absolute;
-  background-color: #ffc0cb; /* 花びらの色 */
+  background-color: #ffc0cb;
+  /* 花びらの色 */
   border-radius: 150% 0 150% 0;
   animation: animate-petal 3s infinite linear;
 }
@@ -98,21 +154,38 @@ main{
     opacity: 0;
     transform: rotate(0deg);
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     top: 100vh;
     transform: rotate(30deg) translate(-50vw, 50vh) rotate(1000deg);
   }
 }
-#input{
-	-ms-writing-mode: tb-rl;
+
+#input {
+  -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   height: 40vh;
   font-size: 5vh;
+}
+
+@media (max-width: 700px) {
+  .input-m-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+  }
+
+  .input-m-right {
+    align-items: center;
+    min-width: unset;
+  }
 }
